@@ -1,0 +1,127 @@
+{% extends "nav_foot.html" %}
+{% block content %}
+<div class="container">
+    <h2 class="page_title">Regrade Requests</h2>
+    <h4>Assignment 1</h4>
+
+    <table class="regrade_table">
+        <thead>
+            <tr>
+                <th style="width:30%">Student</th>
+                <th style="width:70%">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in A1 %}
+            <tr>
+                <td>{{ req.student }}</td>
+                <td>{{ req.reason }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <br>
+    <h4>Assignment 2</h4>
+
+    <table class="regrade_table">
+        <thead>
+            <tr>
+                <th style="width:30%">Student</th>
+                <th style="width:70%">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in A2 %}
+            <tr>
+                <td>{{ req.student }}</td>
+                <td>{{ req.reason }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <h4>Assignment 3</h4>
+
+    <table class="regrade_table">
+        <thead>
+            <tr>
+                <th style="width:30%">Student</th>
+                <th style="width:70%">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in A3 %}
+            <tr>
+                <td>{{ req.student }}</td>
+                <td>{{ req.reason }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <h4>Midterm</h4>
+
+    <table class="regrade_table">
+        <thead>
+            <tr>
+                <th style="width:30%">Student</th>
+                <th style="width:70%">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in Midterm %}
+            <tr>
+                <td>{{ req.student }}</td>
+                <td>{{ req.reason }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <h4>Tutorials</h4>
+
+    <table class="regrade_table">
+        <thead>
+            <tr>
+                <th style="width:30%">Student</th>
+                <th style="width:70%">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in Tutorials %}
+            <tr>
+                <td>{{ req.student }}</td>
+                <td>{{ req.reason }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <h4>Exam</h4>
+
+    <table class="regrade_table">
+        <thead>
+            <tr>
+                <th style="width:30%">Student</th>
+                <th style="width:70%">Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in Exam %}
+            <tr>
+                <td>{{ req.student }}</td>
+                <td>{{ req.reason }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <br>
+    <h3>These are all you requests</h3>
+
+</div>
+{% endblock %}

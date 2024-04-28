@@ -1,0 +1,68 @@
+{% extends "nav_foot.html" %}
+{% block content %}
+
+    {% if session['name'][1] == 'instructor' %}
+    <h3>Welcome {{ session['name'][0] }}, you can access your feedback <a href="instructor_feedback.html">here</a>, and you can access the remark requests <a href="instructor_regrade_request.html">here</a>.</h2>
+    {% endif %}
+    
+    <div class ="course-info">
+        <h1>CSCB20: Introduction to Databases and Web Applications</h1>
+        <br>
+        <h2 class = "page_title">Syllabus</h2>
+    </div>
+
+    <div id="long-syl"><b>Course Discription:</b><p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptatum eius assumenda aliquid
+        . Asperiores accusamus doloribus suscipit fugiat eveniet cumque, magnam repudiandae cupiditate aspernatur,
+         facere ex animi voluptate ut natus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto 
+         voluptatum eius assumenda aliquid. Asperiores accusamus doloribus suscipit fugiat eveniet cumque, magnam 
+         repudiandae cupiditate aspernatur, facere ex animi voluptate ut natus?
+    </p></div>
+    <div id="long-short">
+        <div id="short-syl-left"><b>Instructor:</b> Anna Bretscher <br><b>Email:</b> bretscher@utsc.toronto.edu
+            <br><b>Phone:</b> (416) 208-4745 <br><b>Office</b> IC493</div>
+        <div id="short-syl-right"><b>Topics</b> <br> <b>Databases:</b> <br>
+            <ul>
+                <li>Terminology and applications</li>
+                <li>Creating, querying and updating databases</li>
+                <li>The E-R model for database design</li>
+            </ul> 
+            <b>Web Applications:</b>
+            <ul>
+                <li>Static and Interactive Documents</li>
+                <li>Web servers and dynamic server-generated content</li> 
+                <li>Web application development and integration with databases</li>
+            </ul>
+        </div>
+    </div>
+    <div id="long-syl"><b>General Info:</b> <br>
+        Tutorials: There are weekly tutorials . You are expected to attend the tutorials and participate.
+        <br>Calendar: The calendar on the course website will indicate important due dates for the year.
+        <br>Assignments: Assignment handouts will be available on the course web site. All assignments are
+        submitted electronically and will be graded for correctness and style.
+        Academic Offenses: All of the work you submit must be your own and your work must not be
+        submitted by someone else. Plagiarism is academic fraud and is taken seriously. Please read the
+        Rules and Regulations from the U of T Calendar (especially the Code of Behaviour on Academic
+        Matters).
+        Getting Help: Besides attending lectures, there are several ways to get help in CSCB20H:
+        <br>• Tutorials: Tutorials are a great way for you to get some hands-on practice at programming.<br>
+        • Office Hours: Stop by office hours to ask questions or to hear questions asked by other
+        students. This is a great way to learn.<br>
+        • Discussion Board: Piazza - please make use of your classmates and instructors who will
+        monitor the discussion board and help answer your questions.<br>
+        • Email: If you are having trouble with the course material or if you need extra help, please
+        do not hesitate to contact me. I will answer as soon as possible</div>
+    <div id="long-short">
+        <div id="short-syl-left">
+            <b>Evaluations:</b><br>
+            Assignments (3): 8%, 10%, 15%<br>
+            Midterm: 25%<br>
+            Tutorials: 2%<br>
+            Final Exam: 40%<br>
+        </div>
+        <div id="short-syl-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptatum eius assumenda aliquid
+            . Asperiores accusamus doloribus suscipit fugiat eveniet cumque, magnam repudiandae cupiditate aspernatur,
+             facere ex animi voluptate ut natus? Lorem i</div>
+    </div>
+    <br>
+
+{% endblock %}

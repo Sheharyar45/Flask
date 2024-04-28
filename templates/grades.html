@@ -1,0 +1,140 @@
+{% extends "nav_foot.html" %}
+{% block content %}
+{% with messages = get_flashed_messages(with_categories = True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class = "flash">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    
+<div class="container">
+    <h1>Course Marks</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Test Type</th>
+                <th>Grade</th>
+                <th>Weightage</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>Assignment 1</td>
+                <td>{% for grade in grades %}{% if grades[0].A1 %}{{ grades[0].A1 }}{% else %}{% endif %}{% endfor %}</td>
+                <td>8%</td>
+                <td>
+                    <button class="remark-button" data-test="Assignment 1">Request Remark</button>
+                    <form class="remark-form" data-test="Assignment 1" style="display: none;" method="POST" action="/submit-remark-request">
+                        <input type="hidden" name="test_type" value="Assignment 1">
+                        <input type="text" name="reason" placeholder="Enter Reason">
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Assignment 2</td>
+                <td>{% for grade in grades %}{% if grades[0].A2 %}{{ grades[0].A2 }}{% else %}{% endif %}{% endfor %}</td>
+                <td>10%</td>
+                <td>
+                    <button class="remark-button" data-test="Assignment 2">Request Remark</button>
+                    <form class="remark-form" data-test="Assignment 2" style="display: none;" method="POST" action="/submit-remark-request">
+                        <input type="hidden" name="test_type" value="Assignment 2">
+                        <input type="text" name="reason" placeholder="Enter Reason">
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Assignment 3</td>
+                <td>{% for grade in grades %}{% if grades[0].A3 %}{{ grades[0].A3 }}{% else %}{% endif %}{% endfor %}</td>
+                <td>15%</td>
+                <td>
+                    <button class="remark-button" data-test="Assignment 3">Request Remark</button>
+                    <form class="remark-form" data-test="Assignment 3" style="display: none;" method="POST" action="/submit-remark-request">
+                        <input type="hidden" name="test_type" value="Assignment 3">
+                        <input type="text" name="reason" placeholder="Enter Reason">
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Tutorials</td>
+                <td>{% for grade in grades %}{% if grades[0].tutorials %}{{ grades[0].tutorials }}{% else %}{% endif %}{% endfor %}</td>
+                <td>15%</td>
+                <td>
+                    <button class="remark-button" data-test="Tutorials">Request Remark</button>
+                    <form class="remark-form" data-test="Tutorials" style="display: none;" method="POST" action="/submit-remark-request">
+                        <input type="hidden" name="test_type" value="Tutorials">
+                        <input type="text" name="reason" placeholder="Enter Reason">
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Midterm Exam</td>
+                <td>{% for grade in grades %}{% if grades[0].midterm %}{{ grades[0].midterm }}{% else %}{% endif %}{% endfor %}</td>
+                <td>25%</td>
+                <td>
+                    <button class="remark-button" data-test="Midterm Exam">Request Remark</button>
+                    <form class="remark-form" data-test="Midterm Exam" style="display: none;" method="POST" action="/submit-remark-request">
+                        <input type="hidden" name="test_type" value="Midterm Exam">
+                        <input type="text" name="reason" placeholder="Enter Reason">
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Final Exam</td>
+                <td>{% for grade in grades %}{% if grades[0].exam %}{{ grades[0].exam }}{% else %}{% endif %}{% endfor %}</td>
+                <td>40%</td>
+                <td>
+                    <button class="remark-button" data-test="Final Exam">Request Remark</button>
+                    <form class="remark-form" data-test="Final Exam" style="display: none;" method="POST" action="/submit-remark-request">
+                        <input type="hidden" name="test_type" value="Final Exam">
+                        <input type="text" name="reason" placeholder="Enter Reason">
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Overall</td>
+                <td>{% for grade in grades %}{% if grades[0].final %}{{ grades[0].final }}{% else %}{% endif %}{% endfor %}</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const remarkButtons = document.querySelectorAll('.remark-button');
+    
+        remarkButtons.forEach(button => {
+
+
+            button.addEventListener('click', function() {
+
+                const gradeCell = this.parentNode.previousElementSibling.previousElementSibling;
+                const grade = gradeCell.textContent.trim();
+            
+                if (grade !== '') {
+                    const testType = this.dataset.test;
+                    const form = document.querySelector(`.remark-form[data-test="${testType}"]`);
+                    form.style.display = 'block';
+                
+                }
+            });
+        });
+        });
+
+
+      </script>
+</div>
+    
+       
+</html>
+
+{% endblock %}

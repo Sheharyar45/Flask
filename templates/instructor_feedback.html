@@ -1,0 +1,14 @@
+{% extends "nav_foot.html" %}
+{% block content %}
+<div class="container">
+    <h2 class="page_title">View Feedback</h2>
+    {% for feed in feedbacks %}
+    <div class="news-section">
+        <div class="news-item">
+          <p>{{ feed.feedback }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    <h3>That is all of your feedback thank you.</h3>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "nav_foot.html" %}
+{% block content %}
+    
+<div class="container">
+    <h1>Course Marks</h1>
+    <button id="insert" name="show">Change</button>
+    <form id="show" data-test="Test" style="display: none;" method="POST" action="/insert_grade">
+        <select name = "student_select">
+            {% for s in students %}
+                <option value="{{ s[0] }}">{{ s[0] }}</option>
+            {% endfor %}
+        </select>
+        <label>Insert into:</label>
+        <select id="instructor-select" name="grade">
+            <option value="A1">Assignment 1</option>
+            <option value="A2">Assignment 2</option>
+            <option value="A3">Assignment 3</option>
+            <option value="tutorials">Tutorials</option>
+            <option value="midterm">Midterm</option>
+            <option value="exam">Final Exam</option>
+            <option value="final">Final Grade</option>
+        </select>
+        <label>Grade:</label>
+        <input type="text" name="mark" style="width:30px">
+        <label>%</label>
+        <button type="submit">Submit</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Assignment 1</th>
+                <th>Assignment 2</th>
+                <th>Assignment 3</th>
+                <th>Tutorials</th>
+                <th>Midterm</th>
+                <th>Final Exam</th>
+                <th>Final Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in students %}
+            <tr>
+                <td>{{ s[0] }}</td>
+                <td>{{ s[1] }}</td>
+                <td>{{ s[2] }}</td>
+                <td>{{ s[3] }}</td>
+                <td>{{ s[4] }}</td>
+                <td>{{ s[5] }}</td>
+                <td>{{ s[6] }}</td>
+                <td>{{ s[7] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById("insert").addEventListener("click", function() 
+        {
+            var displayDiv = document.getElementById('show');
+            var displayValue = (displayDiv.style.display === "block") ? "none" : "block";
+            displayDiv.style.display = displayValue;
+        });
+    </script>
+</div>
+    
+       
+</html>
+
+{% endblock %}

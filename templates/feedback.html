@@ -1,0 +1,30 @@
+{% extends "nav_foot.html" %}
+{% block content %}
+{% with messages = get_flashed_messages(with_categories = True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class = "flash">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    <div class="form">
+        <form action="/submit-feedback" method="POST">
+            <div id="form-div">Please Provide Feedback</div><br>
+            <p>What do you like about the instructor teaching?
+                What do you recommend the instructor to do to improve their teaching?
+                What do you like about the labs?
+                What do you recommend the lab instructors to do to improve their lab teaching?</p>
+            <textarea id="form-input" name="feedback_text"></textarea><br>
+            <label for="Instructor">Instructor</label>
+            <select id="instructor-select" name="instructor">
+                {% for instructor in instructors %}
+                    <option value="{{ instructor }}">{{ instructor }}</option>
+                {% endfor %}
+            </select>
+            {% if instructors %}
+            <input id="form-submit" type="submit">
+            {% endif %}
+        </form>
+        
+    </div><br>
+{% endblock %}
